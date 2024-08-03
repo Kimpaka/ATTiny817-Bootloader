@@ -1,0 +1,1418 @@
+
+BOOT_TINY817.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00803e00  00803e00  0000083f  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000007a0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .rodata       0000000b  000087a0  000007a0  00000834  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .bss          000000ea  00803e00  00803e00  0000083f  2**0
+                  ALLOC
+  4 .comment      00000030  00000000  00000000  0000083f  2**0
+                  CONTENTS, READONLY
+  5 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000870  2**2
+                  CONTENTS, READONLY
+  6 .debug_aranges 000002e8  00000000  00000000  000008b0  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00003f75  00000000  00000000  00000b98  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 0000215c  00000000  00000000  00004b0d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00001818  00000000  00000000  00006c69  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  000005a8  00000000  00000000  00008484  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00001913  00000000  00000000  00008a2c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    00001075  00000000  00000000  0000a33f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 00000280  00000000  00000000  0000b3b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
+   2:	33 c0       	rjmp	.+102    	; 0x6a <__bad_interrupt>
+   4:	32 c0       	rjmp	.+100    	; 0x6a <__bad_interrupt>
+   6:	31 c0       	rjmp	.+98     	; 0x6a <__bad_interrupt>
+   8:	30 c0       	rjmp	.+96     	; 0x6a <__bad_interrupt>
+   a:	2f c0       	rjmp	.+94     	; 0x6a <__bad_interrupt>
+   c:	2e c0       	rjmp	.+92     	; 0x6a <__bad_interrupt>
+   e:	2d c0       	rjmp	.+90     	; 0x6a <__bad_interrupt>
+  10:	2c c0       	rjmp	.+88     	; 0x6a <__bad_interrupt>
+  12:	2b c0       	rjmp	.+86     	; 0x6a <__bad_interrupt>
+  14:	2a c0       	rjmp	.+84     	; 0x6a <__bad_interrupt>
+  16:	29 c0       	rjmp	.+82     	; 0x6a <__bad_interrupt>
+  18:	28 c0       	rjmp	.+80     	; 0x6a <__bad_interrupt>
+  1a:	27 c0       	rjmp	.+78     	; 0x6a <__bad_interrupt>
+  1c:	26 c0       	rjmp	.+76     	; 0x6a <__bad_interrupt>
+  1e:	25 c0       	rjmp	.+74     	; 0x6a <__bad_interrupt>
+  20:	24 c0       	rjmp	.+72     	; 0x6a <__bad_interrupt>
+  22:	23 c0       	rjmp	.+70     	; 0x6a <__bad_interrupt>
+  24:	22 c0       	rjmp	.+68     	; 0x6a <__bad_interrupt>
+  26:	7f c2       	rjmp	.+1278   	; 0x526 <__vector_19>
+  28:	20 c0       	rjmp	.+64     	; 0x6a <__bad_interrupt>
+  2a:	1f c0       	rjmp	.+62     	; 0x6a <__bad_interrupt>
+  2c:	1e c0       	rjmp	.+60     	; 0x6a <__bad_interrupt>
+  2e:	1d c0       	rjmp	.+58     	; 0x6a <__bad_interrupt>
+  30:	1c c0       	rjmp	.+56     	; 0x6a <__bad_interrupt>
+  32:	1b c0       	rjmp	.+54     	; 0x6a <__bad_interrupt>
+
+00000034 <__ctors_end>:
+  34:	11 24       	eor	r1, r1
+  36:	1f be       	out	0x3f, r1	; 63
+  38:	cf ef       	ldi	r28, 0xFF	; 255
+  3a:	cd bf       	out	0x3d, r28	; 61
+  3c:	df e3       	ldi	r29, 0x3F	; 63
+  3e:	de bf       	out	0x3e, r29	; 62
+
+00000040 <__do_copy_data>:
+  40:	1e e3       	ldi	r17, 0x3E	; 62
+  42:	a0 e0       	ldi	r26, 0x00	; 0
+  44:	be e3       	ldi	r27, 0x3E	; 62
+  46:	eb ea       	ldi	r30, 0xAB	; 171
+  48:	f7 e0       	ldi	r31, 0x07	; 7
+  4a:	02 c0       	rjmp	.+4      	; 0x50 <__do_copy_data+0x10>
+  4c:	05 90       	lpm	r0, Z+
+  4e:	0d 92       	st	X+, r0
+  50:	a0 30       	cpi	r26, 0x00	; 0
+  52:	b1 07       	cpc	r27, r17
+  54:	d9 f7       	brne	.-10     	; 0x4c <__do_copy_data+0xc>
+
+00000056 <__do_clear_bss>:
+  56:	2e e3       	ldi	r18, 0x3E	; 62
+  58:	a0 e0       	ldi	r26, 0x00	; 0
+  5a:	be e3       	ldi	r27, 0x3E	; 62
+  5c:	01 c0       	rjmp	.+2      	; 0x60 <.do_clear_bss_start>
+
+0000005e <.do_clear_bss_loop>:
+  5e:	1d 92       	st	X+, r1
+
+00000060 <.do_clear_bss_start>:
+  60:	aa 3e       	cpi	r26, 0xEA	; 234
+  62:	b2 07       	cpc	r27, r18
+  64:	e1 f7       	brne	.-8      	; 0x5e <.do_clear_bss_loop>
+  66:	bd d1       	rcall	.+890    	; 0x3e2 <main>
+  68:	99 c3       	rjmp	.+1842   	; 0x79c <_exit>
+
+0000006a <__bad_interrupt>:
+  6a:	ca cf       	rjmp	.-108    	; 0x0 <__vectors>
+
+0000006c <atmel_start_init>:
+/**
+ * Initializes MCU, drivers and middleware in the project
+ **/
+void atmel_start_init(void)
+{
+	system_init();
+  6c:	0f d3       	rcall	.+1566   	; 0x68c <system_init>
+  6e:	08 95       	ret
+
+00000070 <I2C_address_handler>:
+            checksum += page_data[ps];
+        }
+    }    
+    
+    return;
+}
+  70:	1b d3       	rcall	.+1590   	; 0x6a8 <I2C_0_read>
+  72:	80 93 dd 3e 	sts	0x3EDD, r24	; 0x803edd <addr>
+  76:	22 d3       	rcall	.+1604   	; 0x6bc <I2C_0_send_ack>
+  78:	08 95       	ret
+
+0000007a <i2c_clear>:
+  7a:	10 92 0e 3e 	sts	0x3E0E, r1	; 0x803e0e <read_index>
+  7e:	10 92 0d 3e 	sts	0x3E0D, r1	; 0x803e0d <write_index>
+  82:	10 92 0f 3e 	sts	0x3E0F, r1	; 0x803e0f <data_len>
+  86:	86 e4       	ldi	r24, 0x46	; 70
+  88:	e7 e9       	ldi	r30, 0x97	; 151
+  8a:	fe e3       	ldi	r31, 0x3E	; 62
+  8c:	df 01       	movw	r26, r30
+  8e:	98 2f       	mov	r25, r24
+  90:	1d 92       	st	X+, r1
+  92:	9a 95       	dec	r25
+  94:	e9 f7       	brne	.-6      	; 0x90 <__EEPROM_REGION_LENGTH__+0x10>
+  96:	e1 e5       	ldi	r30, 0x51	; 81
+  98:	fe e3       	ldi	r31, 0x3E	; 62
+  9a:	df 01       	movw	r26, r30
+  9c:	1d 92       	st	X+, r1
+  9e:	8a 95       	dec	r24
+  a0:	e9 f7       	brne	.-6      	; 0x9c <__EEPROM_REGION_LENGTH__+0x1c>
+  a2:	10 92 0c 3e 	sts	0x3E0C, r1	; 0x803e0c <master_read_flag>
+  a6:	08 95       	ret
+
+000000a8 <calculate_crc8>:
+  a8:	ac 01       	movw	r20, r24
+  aa:	30 e0       	ldi	r19, 0x00	; 0
+  ac:	80 e0       	ldi	r24, 0x00	; 0
+  ae:	14 c0       	rjmp	.+40     	; 0xd8 <calculate_crc8+0x30>
+  b0:	fa 01       	movw	r30, r20
+  b2:	e3 0f       	add	r30, r19
+  b4:	f1 1d       	adc	r31, r1
+  b6:	90 81       	ld	r25, Z
+  b8:	89 27       	eor	r24, r25
+  ba:	20 e0       	ldi	r18, 0x00	; 0
+  bc:	0a c0       	rjmp	.+20     	; 0xd2 <calculate_crc8+0x2a>
+  be:	88 23       	and	r24, r24
+  c0:	34 f4       	brge	.+12     	; 0xce <calculate_crc8+0x26>
+  c2:	90 e0       	ldi	r25, 0x00	; 0
+  c4:	88 0f       	add	r24, r24
+  c6:	99 1f       	adc	r25, r25
+  c8:	97 e0       	ldi	r25, 0x07	; 7
+  ca:	89 27       	eor	r24, r25
+  cc:	01 c0       	rjmp	.+2      	; 0xd0 <calculate_crc8+0x28>
+  ce:	88 0f       	add	r24, r24
+  d0:	2f 5f       	subi	r18, 0xFF	; 255
+  d2:	28 30       	cpi	r18, 0x08	; 8
+  d4:	a0 f3       	brcs	.-24     	; 0xbe <calculate_crc8+0x16>
+  d6:	3f 5f       	subi	r19, 0xFF	; 255
+  d8:	36 17       	cp	r19, r22
+  da:	50 f3       	brcs	.-44     	; 0xb0 <calculate_crc8+0x8>
+  dc:	08 95       	ret
+
+000000de <flash_page_erase>:
+  de:	90 e0       	ldi	r25, 0x00	; 0
+  e0:	88 96       	adiw	r24, 0x28	; 40
+  e2:	00 24       	eor	r0, r0
+  e4:	96 95       	lsr	r25
+  e6:	87 95       	ror	r24
+  e8:	07 94       	ror	r0
+  ea:	96 95       	lsr	r25
+  ec:	87 95       	ror	r24
+  ee:	07 94       	ror	r0
+  f0:	98 2f       	mov	r25, r24
+  f2:	80 2d       	mov	r24, r0
+  f4:	28 d3       	rcall	.+1616   	; 0x746 <FLASH_0_erase_flash_page>
+  f6:	08 95       	ret
+
+000000f8 <flash_erase>:
+  f8:	cf 93       	push	r28
+  fa:	80 91 06 3e 	lds	r24, 0x3E06	; 0x803e06 <page_num>
+  fe:	8f 3f       	cpi	r24, 0xFF	; 255
+ 100:	09 f5       	brne	.+66     	; 0x144 <flash_erase+0x4c>
+ 102:	1c c0       	rjmp	.+56     	; 0x13c <flash_erase+0x44>
+ 104:	8c 2f       	mov	r24, r28
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	88 96       	adiw	r24, 0x28	; 40
+ 10a:	00 24       	eor	r0, r0
+ 10c:	96 95       	lsr	r25
+ 10e:	87 95       	ror	r24
+ 110:	07 94       	ror	r0
+ 112:	96 95       	lsr	r25
+ 114:	87 95       	ror	r24
+ 116:	07 94       	ror	r0
+ 118:	98 2f       	mov	r25, r24
+ 11a:	80 2d       	mov	r24, r0
+ 11c:	14 d3       	rcall	.+1576   	; 0x746 <FLASH_0_erase_flash_page>
+ 11e:	90 91 00 3e 	lds	r25, 0x3E00	; 0x803e00 <__DATA_REGION_ORIGIN__>
+ 122:	91 11       	cpse	r25, r1
+ 124:	04 c0       	rjmp	.+8      	; 0x12e <flash_erase+0x36>
+ 126:	88 23       	and	r24, r24
+ 128:	21 f0       	breq	.+8      	; 0x132 <flash_erase+0x3a>
+ 12a:	81 e0       	ldi	r24, 0x01	; 1
+ 12c:	03 c0       	rjmp	.+6      	; 0x134 <flash_erase+0x3c>
+ 12e:	81 e0       	ldi	r24, 0x01	; 1
+ 130:	01 c0       	rjmp	.+2      	; 0x134 <flash_erase+0x3c>
+ 132:	80 e0       	ldi	r24, 0x00	; 0
+ 134:	80 93 00 3e 	sts	0x3E00, r24	; 0x803e00 <__DATA_REGION_ORIGIN__>
+ 138:	cf 5f       	subi	r28, 0xFF	; 255
+ 13a:	01 c0       	rjmp	.+2      	; 0x13e <flash_erase+0x46>
+ 13c:	c0 e0       	ldi	r28, 0x00	; 0
+ 13e:	c8 35       	cpi	r28, 0x58	; 88
+ 140:	08 f3       	brcs	.-62     	; 0x104 <flash_erase+0xc>
+ 142:	05 c0       	rjmp	.+10     	; 0x14e <flash_erase+0x56>
+ 144:	80 91 06 3e 	lds	r24, 0x3E06	; 0x803e06 <page_num>
+ 148:	ca df       	rcall	.-108    	; 0xde <flash_page_erase>
+ 14a:	80 93 00 3e 	sts	0x3E00, r24	; 0x803e00 <__DATA_REGION_ORIGIN__>
+ 14e:	80 91 00 3e 	lds	r24, 0x3E00	; 0x803e00 <__DATA_REGION_ORIGIN__>
+ 152:	cf 91       	pop	r28
+ 154:	08 95       	ret
+
+00000156 <flash_page_write>:
+ 156:	cf 93       	push	r28
+ 158:	c8 2f       	mov	r28, r24
+ 15a:	20 e0       	ldi	r18, 0x00	; 0
+ 15c:	0b c0       	rjmp	.+22     	; 0x174 <flash_page_write+0x1e>
+ 15e:	82 2f       	mov	r24, r18
+ 160:	90 e0       	ldi	r25, 0x00	; 0
+ 162:	fc 01       	movw	r30, r24
+ 164:	e4 56       	subi	r30, 0x64	; 100
+ 166:	f1 4c       	sbci	r31, 0xC1	; 193
+ 168:	30 81       	ld	r19, Z
+ 16a:	fc 01       	movw	r30, r24
+ 16c:	ef 5e       	subi	r30, 0xEF	; 239
+ 16e:	f1 4c       	sbci	r31, 0xC1	; 193
+ 170:	30 83       	st	Z, r19
+ 172:	2f 5f       	subi	r18, 0xFF	; 255
+ 174:	28 35       	cpi	r18, 0x58	; 88
+ 176:	98 f3       	brcs	.-26     	; 0x15e <flash_page_write+0x8>
+ 178:	60 91 98 3e 	lds	r22, 0x3E98	; 0x803e98 <read_buf+0x1>
+ 17c:	6f 5f       	subi	r22, 0xFF	; 255
+ 17e:	87 e9       	ldi	r24, 0x97	; 151
+ 180:	9e e3       	ldi	r25, 0x3E	; 62
+ 182:	92 df       	rcall	.-220    	; 0xa8 <calculate_crc8>
+ 184:	90 91 05 3e 	lds	r25, 0x3E05	; 0x803e05 <crc_data>
+ 188:	89 17       	cp	r24, r25
+ 18a:	21 f0       	breq	.+8      	; 0x194 <flash_page_write+0x3e>
+ 18c:	81 e0       	ldi	r24, 0x01	; 1
+ 18e:	80 93 10 3e 	sts	0x3E10, r24	; 0x803e10 <crc_data_chk>
+ 192:	02 c0       	rjmp	.+4      	; 0x198 <flash_page_write+0x42>
+ 194:	10 92 10 3e 	sts	0x3E10, r1	; 0x803e10 <crc_data_chk>
+ 198:	80 91 10 3e 	lds	r24, 0x3E10	; 0x803e10 <crc_data_chk>
+ 19c:	81 11       	cpse	r24, r1
+ 19e:	0f c0       	rjmp	.+30     	; 0x1be <flash_page_write+0x68>
+ 1a0:	8c 2f       	mov	r24, r28
+ 1a2:	90 e0       	ldi	r25, 0x00	; 0
+ 1a4:	88 96       	adiw	r24, 0x28	; 40
+ 1a6:	61 e1       	ldi	r22, 0x11	; 17
+ 1a8:	7e e3       	ldi	r23, 0x3E	; 62
+ 1aa:	00 24       	eor	r0, r0
+ 1ac:	96 95       	lsr	r25
+ 1ae:	87 95       	ror	r24
+ 1b0:	07 94       	ror	r0
+ 1b2:	96 95       	lsr	r25
+ 1b4:	87 95       	ror	r24
+ 1b6:	07 94       	ror	r0
+ 1b8:	98 2f       	mov	r25, r24
+ 1ba:	80 2d       	mov	r24, r0
+ 1bc:	d4 d2       	rcall	.+1448   	; 0x766 <FLASH_0_write_flash_page>
+ 1be:	80 e0       	ldi	r24, 0x00	; 0
+ 1c0:	cf 91       	pop	r28
+ 1c2:	08 95       	ret
+
+000001c4 <flash_page_read>:
+ 1c4:	0f 93       	push	r16
+ 1c6:	1f 93       	push	r17
+ 1c8:	cf 93       	push	r28
+ 1ca:	df 93       	push	r29
+ 1cc:	d8 2f       	mov	r29, r24
+ 1ce:	81 e4       	ldi	r24, 0x41	; 65
+ 1d0:	80 93 51 3e 	sts	0x3E51, r24	; 0x803e51 <write_buf>
+ 1d4:	c0 e0       	ldi	r28, 0x00	; 0
+ 1d6:	19 c0       	rjmp	.+50     	; 0x20a <__DATA_REGION_LENGTH__+0xa>
+ 1d8:	2c 2f       	mov	r18, r28
+ 1da:	30 e0       	ldi	r19, 0x00	; 0
+ 1dc:	89 01       	movw	r16, r18
+ 1de:	0f 5f       	subi	r16, 0xFF	; 255
+ 1e0:	1f 4f       	sbci	r17, 0xFF	; 255
+ 1e2:	8d 2f       	mov	r24, r29
+ 1e4:	90 e0       	ldi	r25, 0x00	; 0
+ 1e6:	88 96       	adiw	r24, 0x28	; 40
+ 1e8:	00 24       	eor	r0, r0
+ 1ea:	96 95       	lsr	r25
+ 1ec:	87 95       	ror	r24
+ 1ee:	07 94       	ror	r0
+ 1f0:	96 95       	lsr	r25
+ 1f2:	87 95       	ror	r24
+ 1f4:	07 94       	ror	r0
+ 1f6:	98 2f       	mov	r25, r24
+ 1f8:	80 2d       	mov	r24, r0
+ 1fa:	82 0f       	add	r24, r18
+ 1fc:	93 1f       	adc	r25, r19
+ 1fe:	9f d2       	rcall	.+1342   	; 0x73e <FLASH_0_read_flash_byte>
+ 200:	f8 01       	movw	r30, r16
+ 202:	ef 5a       	subi	r30, 0xAF	; 175
+ 204:	f1 4c       	sbci	r31, 0xC1	; 193
+ 206:	80 83       	st	Z, r24
+ 208:	cf 5f       	subi	r28, 0xFF	; 255
+ 20a:	c0 34       	cpi	r28, 0x40	; 64
+ 20c:	28 f3       	brcs	.-54     	; 0x1d8 <flash_page_read+0x14>
+ 20e:	e1 e5       	ldi	r30, 0x51	; 81
+ 210:	fe e3       	ldi	r31, 0x3E	; 62
+ 212:	c0 81       	ld	r28, Z
+ 214:	d0 e0       	ldi	r29, 0x00	; 0
+ 216:	60 81       	ld	r22, Z
+ 218:	cf 01       	movw	r24, r30
+ 21a:	46 df       	rcall	.-372    	; 0xa8 <calculate_crc8>
+ 21c:	cf 5a       	subi	r28, 0xAF	; 175
+ 21e:	d1 4c       	sbci	r29, 0xC1	; 193
+ 220:	88 83       	st	Y, r24
+ 222:	80 e0       	ldi	r24, 0x00	; 0
+ 224:	df 91       	pop	r29
+ 226:	cf 91       	pop	r28
+ 228:	1f 91       	pop	r17
+ 22a:	0f 91       	pop	r16
+ 22c:	08 95       	ret
+
+0000022e <fw_ver_check>:
+ 22e:	81 ef       	ldi	r24, 0xF1	; 241
+ 230:	9f e1       	ldi	r25, 0x1F	; 31
+ 232:	85 d2       	rcall	.+1290   	; 0x73e <FLASH_0_read_flash_byte>
+ 234:	80 93 04 3e 	sts	0x3E04, r24	; 0x803e04 <fw_major>
+ 238:	82 ef       	ldi	r24, 0xF2	; 242
+ 23a:	9f e1       	ldi	r25, 0x1F	; 31
+ 23c:	80 d2       	rcall	.+1280   	; 0x73e <FLASH_0_read_flash_byte>
+ 23e:	80 93 03 3e 	sts	0x3E03, r24	; 0x803e03 <fw_minor>
+ 242:	83 ef       	ldi	r24, 0xF3	; 243
+ 244:	9f e1       	ldi	r25, 0x1F	; 31
+ 246:	7b d2       	rcall	.+1270   	; 0x73e <FLASH_0_read_flash_byte>
+ 248:	80 93 02 3e 	sts	0x3E02, r24	; 0x803e02 <fw_rev>
+ 24c:	08 95       	ret
+
+0000024e <i2c_write>:
+ 24e:	cf 93       	push	r28
+ 250:	df 93       	push	r29
+ 252:	80 91 0b 3e 	lds	r24, 0x3E0B	; 0x803e0b <master_dir>
+ 256:	81 30       	cpi	r24, 0x01	; 1
+ 258:	09 f0       	breq	.+2      	; 0x25c <i2c_write+0xe>
+ 25a:	81 c0       	rjmp	.+258    	; 0x35e <i2c_write+0x110>
+ 25c:	80 91 01 3e 	lds	r24, 0x3E01	; 0x803e01 <update_flag>
+ 260:	81 11       	cpse	r24, r1
+ 262:	4a c0       	rjmp	.+148    	; 0x2f8 <i2c_write+0xaa>
+ 264:	80 91 08 3e 	lds	r24, 0x3E08	; 0x803e08 <master_com_1>
+ 268:	82 30       	cpi	r24, 0x02	; 2
+ 26a:	d1 f0       	breq	.+52     	; 0x2a0 <i2c_write+0x52>
+ 26c:	18 f4       	brcc	.+6      	; 0x274 <i2c_write+0x26>
+ 26e:	81 30       	cpi	r24, 0x01	; 1
+ 270:	31 f0       	breq	.+12     	; 0x27e <i2c_write+0x30>
+ 272:	75 c0       	rjmp	.+234    	; 0x35e <i2c_write+0x110>
+ 274:	84 30       	cpi	r24, 0x04	; 4
+ 276:	09 f1       	breq	.+66     	; 0x2ba <i2c_write+0x6c>
+ 278:	80 38       	cpi	r24, 0x80	; 128
+ 27a:	91 f1       	breq	.+100    	; 0x2e0 <i2c_write+0x92>
+ 27c:	70 c0       	rjmp	.+224    	; 0x35e <i2c_write+0x110>
+ 27e:	c1 e5       	ldi	r28, 0x51	; 81
+ 280:	de e3       	ldi	r29, 0x3E	; 62
+ 282:	8b e0       	ldi	r24, 0x0B	; 11
+ 284:	88 83       	st	Y, r24
+ 286:	e0 ea       	ldi	r30, 0xA0	; 160
+ 288:	f7 e8       	ldi	r31, 0x87	; 135
+ 28a:	a2 e5       	ldi	r26, 0x52	; 82
+ 28c:	be e3       	ldi	r27, 0x3E	; 62
+ 28e:	01 90       	ld	r0, Z+
+ 290:	0d 92       	st	X+, r0
+ 292:	8a 95       	dec	r24
+ 294:	e1 f7       	brne	.-8      	; 0x28e <i2c_write+0x40>
+ 296:	68 81       	ld	r22, Y
+ 298:	ce 01       	movw	r24, r28
+ 29a:	06 df       	rcall	.-500    	; 0xa8 <calculate_crc8>
+ 29c:	8b 87       	std	Y+11, r24	; 0x0b
+ 29e:	5f c0       	rjmp	.+190    	; 0x35e <i2c_write+0x110>
+ 2a0:	c1 e5       	ldi	r28, 0x51	; 81
+ 2a2:	de e3       	ldi	r29, 0x3E	; 62
+ 2a4:	84 e0       	ldi	r24, 0x04	; 4
+ 2a6:	88 83       	st	Y, r24
+ 2a8:	89 e0       	ldi	r24, 0x09	; 9
+ 2aa:	89 83       	std	Y+1, r24	; 0x01
+ 2ac:	8a 83       	std	Y+2, r24	; 0x02
+ 2ae:	1b 82       	std	Y+3, r1	; 0x03
+ 2b0:	68 81       	ld	r22, Y
+ 2b2:	ce 01       	movw	r24, r28
+ 2b4:	f9 de       	rcall	.-526    	; 0xa8 <calculate_crc8>
+ 2b6:	8c 83       	std	Y+4, r24	; 0x04
+ 2b8:	52 c0       	rjmp	.+164    	; 0x35e <i2c_write+0x110>
+ 2ba:	b9 df       	rcall	.-142    	; 0x22e <fw_ver_check>
+ 2bc:	c1 e5       	ldi	r28, 0x51	; 81
+ 2be:	de e3       	ldi	r29, 0x3E	; 62
+ 2c0:	84 e0       	ldi	r24, 0x04	; 4
+ 2c2:	88 83       	st	Y, r24
+ 2c4:	80 91 04 3e 	lds	r24, 0x3E04	; 0x803e04 <fw_major>
+ 2c8:	89 83       	std	Y+1, r24	; 0x01
+ 2ca:	80 91 03 3e 	lds	r24, 0x3E03	; 0x803e03 <fw_minor>
+ 2ce:	8a 83       	std	Y+2, r24	; 0x02
+ 2d0:	80 91 02 3e 	lds	r24, 0x3E02	; 0x803e02 <fw_rev>
+ 2d4:	8b 83       	std	Y+3, r24	; 0x03
+ 2d6:	68 81       	ld	r22, Y
+ 2d8:	ce 01       	movw	r24, r28
+ 2da:	e6 de       	rcall	.-564    	; 0xa8 <calculate_crc8>
+ 2dc:	8c 83       	std	Y+4, r24	; 0x04
+ 2de:	3f c0       	rjmp	.+126    	; 0x35e <i2c_write+0x110>
+ 2e0:	c1 e5       	ldi	r28, 0x51	; 81
+ 2e2:	de e3       	ldi	r29, 0x3E	; 62
+ 2e4:	82 e0       	ldi	r24, 0x02	; 2
+ 2e6:	88 83       	st	Y, r24
+ 2e8:	80 91 01 3e 	lds	r24, 0x3E01	; 0x803e01 <update_flag>
+ 2ec:	89 83       	std	Y+1, r24	; 0x01
+ 2ee:	68 81       	ld	r22, Y
+ 2f0:	ce 01       	movw	r24, r28
+ 2f2:	da de       	rcall	.-588    	; 0xa8 <calculate_crc8>
+ 2f4:	8a 83       	std	Y+2, r24	; 0x02
+ 2f6:	33 c0       	rjmp	.+102    	; 0x35e <i2c_write+0x110>
+ 2f8:	80 91 08 3e 	lds	r24, 0x3E08	; 0x803e08 <master_com_1>
+ 2fc:	82 30       	cpi	r24, 0x02	; 2
+ 2fe:	01 f1       	breq	.+64     	; 0x340 <i2c_write+0xf2>
+ 300:	18 f4       	brcc	.+6      	; 0x308 <i2c_write+0xba>
+ 302:	81 30       	cpi	r24, 0x01	; 1
+ 304:	89 f0       	breq	.+34     	; 0x328 <i2c_write+0xda>
+ 306:	2b c0       	rjmp	.+86     	; 0x35e <i2c_write+0x110>
+ 308:	80 34       	cpi	r24, 0x40	; 64
+ 30a:	31 f1       	breq	.+76     	; 0x358 <i2c_write+0x10a>
+ 30c:	80 38       	cpi	r24, 0x80	; 128
+ 30e:	39 f5       	brne	.+78     	; 0x35e <i2c_write+0x110>
+ 310:	c1 e5       	ldi	r28, 0x51	; 81
+ 312:	de e3       	ldi	r29, 0x3E	; 62
+ 314:	82 e0       	ldi	r24, 0x02	; 2
+ 316:	88 83       	st	Y, r24
+ 318:	80 91 01 3e 	lds	r24, 0x3E01	; 0x803e01 <update_flag>
+ 31c:	89 83       	std	Y+1, r24	; 0x01
+ 31e:	68 81       	ld	r22, Y
+ 320:	ce 01       	movw	r24, r28
+ 322:	c2 de       	rcall	.-636    	; 0xa8 <calculate_crc8>
+ 324:	8a 83       	std	Y+2, r24	; 0x02
+ 326:	1b c0       	rjmp	.+54     	; 0x35e <i2c_write+0x110>
+ 328:	c1 e5       	ldi	r28, 0x51	; 81
+ 32a:	de e3       	ldi	r29, 0x3E	; 62
+ 32c:	82 e0       	ldi	r24, 0x02	; 2
+ 32e:	88 83       	st	Y, r24
+ 330:	80 91 00 3e 	lds	r24, 0x3E00	; 0x803e00 <__DATA_REGION_ORIGIN__>
+ 334:	89 83       	std	Y+1, r24	; 0x01
+ 336:	68 81       	ld	r22, Y
+ 338:	ce 01       	movw	r24, r28
+ 33a:	b6 de       	rcall	.-660    	; 0xa8 <calculate_crc8>
+ 33c:	8a 83       	std	Y+2, r24	; 0x02
+ 33e:	0f c0       	rjmp	.+30     	; 0x35e <i2c_write+0x110>
+ 340:	c1 e5       	ldi	r28, 0x51	; 81
+ 342:	de e3       	ldi	r29, 0x3E	; 62
+ 344:	82 e0       	ldi	r24, 0x02	; 2
+ 346:	88 83       	st	Y, r24
+ 348:	80 91 10 3e 	lds	r24, 0x3E10	; 0x803e10 <crc_data_chk>
+ 34c:	89 83       	std	Y+1, r24	; 0x01
+ 34e:	68 81       	ld	r22, Y
+ 350:	ce 01       	movw	r24, r28
+ 352:	aa de       	rcall	.-684    	; 0xa8 <calculate_crc8>
+ 354:	8a 83       	std	Y+2, r24	; 0x02
+ 356:	03 c0       	rjmp	.+6      	; 0x35e <i2c_write+0x110>
+ 358:	80 91 06 3e 	lds	r24, 0x3E06	; 0x803e06 <page_num>
+ 35c:	33 df       	rcall	.-410    	; 0x1c4 <flash_page_read>
+ 35e:	df 91       	pop	r29
+ 360:	cf 91       	pop	r28
+ 362:	08 95       	ret
+
+00000364 <I2C_write_handler>:
+ 364:	80 91 0c 3e 	lds	r24, 0x3E0C	; 0x803e0c <master_read_flag>
+ 368:	81 11       	cpse	r24, r1
+ 36a:	04 c0       	rjmp	.+8      	; 0x374 <I2C_write_handler+0x10>
+ 36c:	81 e0       	ldi	r24, 0x01	; 1
+ 36e:	80 93 0c 3e 	sts	0x3E0C, r24	; 0x803e0c <master_read_flag>
+ 372:	6d df       	rcall	.-294    	; 0x24e <i2c_write>
+ 374:	80 91 0d 3e 	lds	r24, 0x3E0D	; 0x803e0d <write_index>
+ 378:	86 34       	cpi	r24, 0x46	; 70
+ 37a:	38 f5       	brcc	.+78     	; 0x3ca <I2C_write_handler+0x66>
+ 37c:	e0 91 0d 3e 	lds	r30, 0x3E0D	; 0x803e0d <write_index>
+ 380:	f0 e0       	ldi	r31, 0x00	; 0
+ 382:	ef 5a       	subi	r30, 0xAF	; 175
+ 384:	f1 4c       	sbci	r31, 0xC1	; 193
+ 386:	80 81       	ld	r24, Z
+ 388:	92 d1       	rcall	.+804    	; 0x6ae <I2C_0_write>
+ 38a:	80 91 0d 3e 	lds	r24, 0x3E0D	; 0x803e0d <write_index>
+ 38e:	81 11       	cpse	r24, r1
+ 390:	08 c0       	rjmp	.+16     	; 0x3a2 <I2C_write_handler+0x3e>
+ 392:	e0 91 0d 3e 	lds	r30, 0x3E0D	; 0x803e0d <write_index>
+ 396:	f0 e0       	ldi	r31, 0x00	; 0
+ 398:	ef 5a       	subi	r30, 0xAF	; 175
+ 39a:	f1 4c       	sbci	r31, 0xC1	; 193
+ 39c:	80 81       	ld	r24, Z
+ 39e:	80 93 09 3e 	sts	0x3E09, r24	; 0x803e09 <w_data_len>
+ 3a2:	80 91 09 3e 	lds	r24, 0x3E09	; 0x803e09 <w_data_len>
+ 3a6:	88 23       	and	r24, r24
+ 3a8:	51 f0       	breq	.+20     	; 0x3be <I2C_write_handler+0x5a>
+ 3aa:	90 91 09 3e 	lds	r25, 0x3E09	; 0x803e09 <w_data_len>
+ 3ae:	80 91 0d 3e 	lds	r24, 0x3E0D	; 0x803e0d <write_index>
+ 3b2:	98 17       	cp	r25, r24
+ 3b4:	20 f4       	brcc	.+8      	; 0x3be <I2C_write_handler+0x5a>
+ 3b6:	10 92 0c 3e 	sts	0x3E0C, r1	; 0x803e0c <master_read_flag>
+ 3ba:	84 d1       	rcall	.+776    	; 0x6c4 <I2C_0_send_nack>
+ 3bc:	08 95       	ret
+ 3be:	7e d1       	rcall	.+764    	; 0x6bc <I2C_0_send_ack>
+ 3c0:	80 91 0d 3e 	lds	r24, 0x3E0D	; 0x803e0d <write_index>
+ 3c4:	8f 5f       	subi	r24, 0xFF	; 255
+ 3c6:	80 93 0d 3e 	sts	0x3E0D, r24	; 0x803e0d <write_index>
+ 3ca:	08 95       	ret
+
+000003cc <i2c_slave_init>:
+ 3cc:	83 e2       	ldi	r24, 0x23	; 35
+ 3ce:	92 e0       	ldi	r25, 0x02	; 2
+ 3d0:	82 d1       	rcall	.+772    	; 0x6d6 <I2C_0_set_write_callback>
+ 3d2:	82 eb       	ldi	r24, 0xB2	; 178
+ 3d4:	91 e0       	ldi	r25, 0x01	; 1
+ 3d6:	7a d1       	rcall	.+756    	; 0x6cc <I2C_0_set_read_callback>
+ 3d8:	88 e3       	ldi	r24, 0x38	; 56
+ 3da:	90 e0       	ldi	r25, 0x00	; 0
+ 3dc:	81 d1       	rcall	.+770    	; 0x6e0 <I2C_0_set_address_callback>
+ 3de:	81 e0       	ldi	r24, 0x01	; 1
+ 3e0:	08 95       	ret
+
+000003e2 <main>:
+//[*]===================================================================================[*]
+int main(void)
+{   
+	/* Initializes MCU, drivers and middleware */
+	atmel_start_init();
+ 3e2:	44 de       	rcall	.-888    	; 0x6c <atmel_start_init>
+    
+//    if(!magic_num_check())
+//        fw_checksum_check();
+    
+	i2c_slave_init();
+ 3e4:	f3 df       	rcall	.-26     	; 0x3cc <i2c_slave_init>
+
+	ENABLE_INTERRUPTS();
+ 3e6:	78 94       	sei
+ 3e8:	ff cf       	rjmp	.-2      	; 0x3e8 <main+0x6>
+
+000003ea <jump_to_address>:
+	}
+	return 0;
+}
+//[*]===================================================================================[*]
+void jump_to_address(uint16_t address)
+{
+ 3ea:	cf 93       	push	r28
+ 3ec:	df 93       	push	r29
+ 3ee:	ec 01       	movw	r28, r24
+    // Define a function pointer with the target address
+    void (*jump_to_app)(void) = (void (*)(void)) address;
+
+    I2C_0_close();
+ 3f0:	55 d1       	rcall	.+682    	; 0x69c <I2C_0_close>
+
+    // Disable interrupts before jumping
+    cli();
+ 3f2:	f8 94       	cli
+
+    // Jump to the target address
+    jump_to_app();
+ 3f4:	fe 01       	movw	r30, r28
+ 3f6:	09 95       	icall
+}
+ 3f8:	df 91       	pop	r29
+ 3fa:	cf 91       	pop	r28
+ 3fc:	08 95       	ret
+
+000003fe <i2c_read>:
+    fw_rev   = FLASH_0_read_flash_byte(LAST_DATA_ADDRESS+3);
+}
+//[*]===================================================================================[*]
+void i2c_read(void)
+{
+	if(master_dir == MASTER_WRITE) {
+ 3fe:	80 91 0b 3e 	lds	r24, 0x3E0B	; 0x803e0b <master_dir>
+ 402:	81 11       	cpse	r24, r1
+ 404:	1f c0       	rjmp	.+62     	; 0x444 <__LOCK_REGION_LENGTH__+0x44>
+		switch(master_com_1)  {
+ 406:	80 91 08 3e 	lds	r24, 0x3E08	; 0x803e08 <master_com_1>
+ 40a:	88 30       	cpi	r24, 0x08	; 8
+ 40c:	99 f0       	breq	.+38     	; 0x434 <__LOCK_REGION_LENGTH__+0x34>
+ 40e:	28 f4       	brcc	.+10     	; 0x41a <__LOCK_REGION_LENGTH__+0x1a>
+ 410:	81 30       	cpi	r24, 0x01	; 1
+ 412:	41 f0       	breq	.+16     	; 0x424 <__LOCK_REGION_LENGTH__+0x24>
+ 414:	84 30       	cpi	r24, 0x04	; 4
+ 416:	51 f0       	breq	.+20     	; 0x42c <__LOCK_REGION_LENGTH__+0x2c>
+ 418:	08 95       	ret
+ 41a:	80 31       	cpi	r24, 0x10	; 16
+ 41c:	71 f0       	breq	.+28     	; 0x43a <__LOCK_REGION_LENGTH__+0x3a>
+ 41e:	80 32       	cpi	r24, 0x20	; 32
+ 420:	71 f0       	breq	.+28     	; 0x43e <__LOCK_REGION_LENGTH__+0x3e>
+ 422:	08 95       	ret
+			case EXIT_BOOT :
+			jump_to_address(0x500);
+ 424:	80 e0       	ldi	r24, 0x00	; 0
+ 426:	95 e0       	ldi	r25, 0x05	; 5
+ 428:	e0 df       	rcall	.-64     	; 0x3ea <jump_to_address>
+			break;
+ 42a:	08 95       	ret
+			
+			case GO_UPDATE_MODE :
+			update_flag = 1;
+ 42c:	81 e0       	ldi	r24, 0x01	; 1
+ 42e:	80 93 01 3e 	sts	0x3E01, r24	; 0x803e01 <update_flag>
+			break;
+ 432:	08 95       	ret
+            
+            case OUT_UPDATE_MODE :
+            update_flag = 0;
+ 434:	10 92 01 3e 	sts	0x3E01, r1	; 0x803e01 <update_flag>
+            break;
+ 438:	08 95       	ret
+			
+			case CHIP_ERASE :
+			flash_erase();
+ 43a:	5e de       	rcall	.-836    	; 0xf8 <flash_erase>
+            break;
+ 43c:	08 95       	ret
+                
+            case PAGE_WRITE :
+            flash_page_write(page_num);
+ 43e:	80 91 06 3e 	lds	r24, 0x3E06	; 0x803e06 <page_num>
+ 442:	89 de       	rcall	.-750    	; 0x156 <flash_page_write>
+ 444:	08 95       	ret
+
+00000446 <I2C_read_handler>:
+	addr = I2C_0_read();
+	I2C_0_send_ack(); // or send_nack() if we don't want to ack the address
+}
+//[*]===================================================================================[*]
+void I2C_read_handler() // Master Write / Slave Read
+{
+ 446:	cf 93       	push	r28
+ 448:	df 93       	push	r29
+	// Master write handler
+	if (read_index < sizeof(read_buf)) {
+ 44a:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 44e:	86 34       	cpi	r24, 0x46	; 70
+ 450:	08 f0       	brcs	.+2      	; 0x454 <I2C_read_handler+0xe>
+ 452:	66 c0       	rjmp	.+204    	; 0x520 <I2C_read_handler+0xda>
+		
+		read_buf[read_index] = I2C_0_read();
+ 454:	c0 91 0e 3e 	lds	r28, 0x3E0E	; 0x803e0e <read_index>
+ 458:	d0 e0       	ldi	r29, 0x00	; 0
+ 45a:	26 d1       	rcall	.+588    	; 0x6a8 <I2C_0_read>
+ 45c:	c9 56       	subi	r28, 0x69	; 105
+ 45e:	d1 4c       	sbci	r29, 0xC1	; 193
+ 460:	88 83       	st	Y, r24
+		
+        // Check Master Read / Write Status
+		if(read_index == 0u)    {
+ 462:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 466:	81 11       	cpse	r24, r1
+ 468:	09 c0       	rjmp	.+18     	; 0x47c <I2C_read_handler+0x36>
+		    master_dir = read_buf[read_index];
+ 46a:	e0 91 0e 3e 	lds	r30, 0x3E0E	; 0x803e0e <read_index>
+ 46e:	f0 e0       	ldi	r31, 0x00	; 0
+ 470:	e9 56       	subi	r30, 0x69	; 105
+ 472:	f1 4c       	sbci	r31, 0xC1	; 193
+ 474:	80 81       	ld	r24, Z
+ 476:	80 93 0b 3e 	sts	0x3E0B, r24	; 0x803e0b <master_dir>
+ 47a:	33 c0       	rjmp	.+102    	; 0x4e2 <I2C_read_handler+0x9c>
+        }
+        
+        // Check Data Length
+		else if(read_index == 1u)    {
+ 47c:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 480:	81 30       	cpi	r24, 0x01	; 1
+ 482:	49 f4       	brne	.+18     	; 0x496 <I2C_read_handler+0x50>
+			r_data_len = read_buf[read_index];
+ 484:	e0 91 0e 3e 	lds	r30, 0x3E0E	; 0x803e0e <read_index>
+ 488:	f0 e0       	ldi	r31, 0x00	; 0
+ 48a:	e9 56       	subi	r30, 0x69	; 105
+ 48c:	f1 4c       	sbci	r31, 0xC1	; 193
+ 48e:	80 81       	ld	r24, Z
+ 490:	80 93 0a 3e 	sts	0x3E0A, r24	; 0x803e0a <r_data_len>
+ 494:	26 c0       	rjmp	.+76     	; 0x4e2 <I2C_read_handler+0x9c>
+		}
+        
+        else if(read_index == 2u)   {
+ 496:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 49a:	82 30       	cpi	r24, 0x02	; 2
+ 49c:	49 f4       	brne	.+18     	; 0x4b0 <I2C_read_handler+0x6a>
+            master_com_1 = read_buf[read_index];
+ 49e:	e0 91 0e 3e 	lds	r30, 0x3E0E	; 0x803e0e <read_index>
+ 4a2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4a4:	e9 56       	subi	r30, 0x69	; 105
+ 4a6:	f1 4c       	sbci	r31, 0xC1	; 193
+ 4a8:	80 81       	ld	r24, Z
+ 4aa:	80 93 08 3e 	sts	0x3E08, r24	; 0x803e08 <master_com_1>
+ 4ae:	19 c0       	rjmp	.+50     	; 0x4e2 <I2C_read_handler+0x9c>
+        }
+        
+        else if(read_index == 3u)   {
+ 4b0:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 4b4:	83 30       	cpi	r24, 0x03	; 3
+ 4b6:	49 f4       	brne	.+18     	; 0x4ca <I2C_read_handler+0x84>
+            master_com_2 = read_buf[read_index];
+ 4b8:	e0 91 0e 3e 	lds	r30, 0x3E0E	; 0x803e0e <read_index>
+ 4bc:	f0 e0       	ldi	r31, 0x00	; 0
+ 4be:	e9 56       	subi	r30, 0x69	; 105
+ 4c0:	f1 4c       	sbci	r31, 0xC1	; 193
+ 4c2:	80 81       	ld	r24, Z
+ 4c4:	80 93 07 3e 	sts	0x3E07, r24	; 0x803e07 <master_com_2>
+ 4c8:	0c c0       	rjmp	.+24     	; 0x4e2 <I2C_read_handler+0x9c>
+        }
+
+        else if(read_index == 4u)   {
+ 4ca:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 4ce:	84 30       	cpi	r24, 0x04	; 4
+ 4d0:	41 f4       	brne	.+16     	; 0x4e2 <I2C_read_handler+0x9c>
+            page_num = read_buf[read_index];
+ 4d2:	e0 91 0e 3e 	lds	r30, 0x3E0E	; 0x803e0e <read_index>
+ 4d6:	f0 e0       	ldi	r31, 0x00	; 0
+ 4d8:	e9 56       	subi	r30, 0x69	; 105
+ 4da:	f1 4c       	sbci	r31, 0xC1	; 193
+ 4dc:	80 81       	ld	r24, Z
+ 4de:	80 93 06 3e 	sts	0x3E06, r24	; 0x803e06 <page_num>
+        }
+        		
+		if(r_data_len)    {
+ 4e2:	80 91 0a 3e 	lds	r24, 0x3E0A	; 0x803e0a <r_data_len>
+ 4e6:	88 23       	and	r24, r24
+ 4e8:	a9 f0       	breq	.+42     	; 0x514 <I2C_read_handler+0xce>
+			if(r_data_len < read_index)   {
+ 4ea:	90 91 0a 3e 	lds	r25, 0x3E0A	; 0x803e0a <r_data_len>
+ 4ee:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 4f2:	98 17       	cp	r25, r24
+ 4f4:	78 f4       	brcc	.+30     	; 0x514 <I2C_read_handler+0xce>
+                crc_data = read_buf[read_index];
+ 4f6:	e0 91 0e 3e 	lds	r30, 0x3E0E	; 0x803e0e <read_index>
+ 4fa:	f0 e0       	ldi	r31, 0x00	; 0
+ 4fc:	e9 56       	subi	r30, 0x69	; 105
+ 4fe:	f1 4c       	sbci	r31, 0xC1	; 193
+ 500:	80 81       	ld	r24, Z
+ 502:	80 93 05 3e 	sts	0x3E05, r24	; 0x803e05 <crc_data>
+                if(master_dir == MASTER_WRITE)
+ 506:	80 91 0b 3e 	lds	r24, 0x3E0B	; 0x803e0b <master_dir>
+ 50a:	81 11       	cpse	r24, r1
+ 50c:	01 c0       	rjmp	.+2      	; 0x510 <I2C_read_handler+0xca>
+                    i2c_read();
+ 50e:	77 df       	rcall	.-274    	; 0x3fe <i2c_read>
+				I2C_0_send_nack();
+ 510:	d9 d0       	rcall	.+434    	; 0x6c4 <I2C_0_send_nack>
+				return;
+ 512:	06 c0       	rjmp	.+12     	; 0x520 <I2C_read_handler+0xda>
+			}
+		}
+		I2C_0_send_ack();
+ 514:	d3 d0       	rcall	.+422    	; 0x6bc <I2C_0_send_ack>
+		read_index++;
+ 516:	80 91 0e 3e 	lds	r24, 0x3E0E	; 0x803e0e <read_index>
+ 51a:	8f 5f       	subi	r24, 0xFF	; 255
+ 51c:	80 93 0e 3e 	sts	0x3E0E, r24	; 0x803e0e <read_index>
+	}
+}
+ 520:	df 91       	pop	r29
+ 522:	cf 91       	pop	r28
+ 524:	08 95       	ret
+
+00000526 <__vector_19>:
+}
+//[*]===================================================================================[*]
+//[*] Interrupt Service Routine
+//[*]===================================================================================[*]
+ISR(TWI0_TWIS_vect)
+{
+ 526:	1f 92       	push	r1
+ 528:	0f 92       	push	r0
+ 52a:	0f b6       	in	r0, 0x3f	; 63
+ 52c:	0f 92       	push	r0
+ 52e:	11 24       	eor	r1, r1
+ 530:	2f 93       	push	r18
+ 532:	3f 93       	push	r19
+ 534:	4f 93       	push	r20
+ 536:	5f 93       	push	r21
+ 538:	6f 93       	push	r22
+ 53a:	7f 93       	push	r23
+ 53c:	8f 93       	push	r24
+ 53e:	9f 93       	push	r25
+ 540:	af 93       	push	r26
+ 542:	bf 93       	push	r27
+ 544:	ef 93       	push	r30
+ 546:	ff 93       	push	r31
+	if ((TWI0.SSTATUS & TWI_APIF_bm) && (TWI0.SSTATUS & TWI_AP_bm)) {
+ 548:	80 91 1b 08 	lds	r24, 0x081B	; 0x80081b <__RODATA_PM_OFFSET__+0x7f881b>
+ 54c:	86 ff       	sbrs	r24, 6
+ 54e:	06 c0       	rjmp	.+12     	; 0x55c <__vector_19+0x36>
+ 550:	80 91 1b 08 	lds	r24, 0x081B	; 0x80081b <__RODATA_PM_OFFSET__+0x7f881b>
+ 554:	80 ff       	sbrs	r24, 0
+ 556:	02 c0       	rjmp	.+4      	; 0x55c <__vector_19+0x36>
+		I2C_address_handler();
+ 558:	8b dd       	rcall	.-1258   	; 0x70 <I2C_address_handler>
+		return;
+ 55a:	22 c0       	rjmp	.+68     	; 0x5a0 <__vector_19+0x7a>
+	}
+	// Address or stop condition
+	if (TWI0.SSTATUS & TWI_APIF_bm) {
+ 55c:	80 91 1b 08 	lds	r24, 0x081B	; 0x80081b <__RODATA_PM_OFFSET__+0x7f881b>
+ 560:	86 ff       	sbrs	r24, 6
+ 562:	0e c0       	rjmp	.+28     	; 0x580 <__vector_19+0x5a>
+		if (TWI0.SSTATUS & TWI_AP_bm) {
+ 564:	80 91 1b 08 	lds	r24, 0x081B	; 0x80081b <__RODATA_PM_OFFSET__+0x7f881b>
+ 568:	80 ff       	sbrs	r24, 0
+ 56a:	04 c0       	rjmp	.+8      	; 0x574 <__vector_19+0x4e>
+			if (!(TWI0.SSTATUS & TWI_DIR_bm)) {
+ 56c:	80 91 1b 08 	lds	r24, 0x081B	; 0x80081b <__RODATA_PM_OFFSET__+0x7f881b>
+ 570:	81 ff       	sbrs	r24, 1
+				I2C_read_handler();
+ 572:	69 df       	rcall	.-302    	; 0x446 <I2C_read_handler>
+			}
+        }		
+		TWI0.SSTATUS |= TWI_APIF_bm;
+ 574:	e0 e1       	ldi	r30, 0x10	; 16
+ 576:	f8 e0       	ldi	r31, 0x08	; 8
+ 578:	83 85       	ldd	r24, Z+11	; 0x0b
+ 57a:	80 64       	ori	r24, 0x40	; 64
+ 57c:	83 87       	std	Z+11, r24	; 0x0b
+        i2c_clear();
+ 57e:	7d dd       	rcall	.-1286   	; 0x7a <i2c_clear>
+	}
+
+	// Data interrupt
+	if (TWI0.SSTATUS & TWI_DIF_bm) {
+ 580:	80 91 1b 08 	lds	r24, 0x081B	; 0x80081b <__RODATA_PM_OFFSET__+0x7f881b>
+ 584:	88 23       	and	r24, r24
+ 586:	64 f4       	brge	.+24     	; 0x5a0 <__vector_19+0x7a>
+		if (TWI0_SSTATUS & TWI_DIR_bm)  {
+ 588:	80 91 1b 08 	lds	r24, 0x081B	; 0x80081b <__RODATA_PM_OFFSET__+0x7f881b>
+ 58c:	81 ff       	sbrs	r24, 1
+ 58e:	02 c0       	rjmp	.+4      	; 0x594 <__vector_19+0x6e>
+			//Master read
+			I2C_write_handler();
+ 590:	e9 de       	rcall	.-558    	; 0x364 <I2C_write_handler>
+ 592:	01 c0       	rjmp	.+2      	; 0x596 <__vector_19+0x70>
+		}
+		else
+		{
+			I2C_read_handler();
+ 594:	58 df       	rcall	.-336    	; 0x446 <I2C_read_handler>
+		}
+		TWI0_SSTATUS |= TWI_DIF_bm;
+ 596:	eb e1       	ldi	r30, 0x1B	; 27
+ 598:	f8 e0       	ldi	r31, 0x08	; 8
+ 59a:	80 81       	ld	r24, Z
+ 59c:	80 68       	ori	r24, 0x80	; 128
+ 59e:	80 83       	st	Z, r24
+	}
+}
+ 5a0:	ff 91       	pop	r31
+ 5a2:	ef 91       	pop	r30
+ 5a4:	bf 91       	pop	r27
+ 5a6:	af 91       	pop	r26
+ 5a8:	9f 91       	pop	r25
+ 5aa:	8f 91       	pop	r24
+ 5ac:	7f 91       	pop	r23
+ 5ae:	6f 91       	pop	r22
+ 5b0:	5f 91       	pop	r21
+ 5b2:	4f 91       	pop	r20
+ 5b4:	3f 91       	pop	r19
+ 5b6:	2f 91       	pop	r18
+ 5b8:	0f 90       	pop	r0
+ 5ba:	0f be       	out	0x3f, r0	; 63
+ 5bc:	0f 90       	pop	r0
+ 5be:	1f 90       	pop	r1
+ 5c0:	18 95       	reti
+
+000005c2 <BOD_init>:
+	//		 | BOD_VLMCFG_BELOW_gc; /* Interrupt when supply goes below VLM level */
+
+	// BOD.VLMCTRLA = BOD_VLMLVL_5ABOVE_gc; /* VLM threshold 5% above BOD level */
+
+	return 0;
+}
+ 5c2:	80 e0       	ldi	r24, 0x00	; 0
+ 5c4:	08 95       	ret
+
+000005c6 <CLKCTRL_init>:
+	//		 | 0 << CLKCTRL_CLKOUT_bp /* System clock out: disabled */);
+
+	// ccp_write_io((void*)&(CLKCTRL.MCLKLOCK),0 << CLKCTRL_LOCKEN_bp /* lock enable: disabled */);
+
+	return 0;
+}
+ 5c6:	80 e0       	ldi	r24, 0x00	; 0
+ 5c8:	08 95       	ret
+
+000005ca <CPUINT_init>:
+ *       on calling convention. The memory model is not visible to the
+ *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+ */
+static inline void ccp_write_io(void *addr, uint8_t value)
+{
+	protected_write_io(addr, CCP_IOREG_gc, value);
+ 5ca:	40 e4       	ldi	r20, 0x40	; 64
+ 5cc:	68 ed       	ldi	r22, 0xD8	; 216
+ 5ce:	80 e1       	ldi	r24, 0x10	; 16
+ 5d0:	91 e0       	ldi	r25, 0x01	; 1
+ 5d2:	de d0       	rcall	.+444    	; 0x790 <protected_write_io>
+	// CPUINT.LVL0PRI = 0x0 << CPUINT_LVL0PRI_gp; /* Interrupt Level Priority: 0x0 */
+
+	// CPUINT.LVL1VEC = 0x0 << CPUINT_LVL1VEC_gp; /* Interrupt Vector with High Priority: 0x0 */
+
+	return 0;
+}
+ 5d4:	80 e0       	ldi	r24, 0x00	; 0
+ 5d6:	08 95       	ret
+
+000005d8 <mcu_init>:
+	 * disables all peripherals to save power. Driver shall enable
+	 * peripheral if used */
+
+	/* Set all pins to low power mode */
+
+	for (uint8_t i = 0; i < 8; i++) {
+ 5d8:	80 e0       	ldi	r24, 0x00	; 0
+ 5da:	08 c0       	rjmp	.+16     	; 0x5ec <mcu_init+0x14>
+		*((uint8_t *)&PORTA + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+ 5dc:	e8 2f       	mov	r30, r24
+ 5de:	f0 e0       	ldi	r31, 0x00	; 0
+ 5e0:	e0 5f       	subi	r30, 0xF0	; 240
+ 5e2:	fb 4f       	sbci	r31, 0xFB	; 251
+ 5e4:	90 81       	ld	r25, Z
+ 5e6:	98 60       	ori	r25, 0x08	; 8
+ 5e8:	90 83       	st	Z, r25
+	 * disables all peripherals to save power. Driver shall enable
+	 * peripheral if used */
+
+	/* Set all pins to low power mode */
+
+	for (uint8_t i = 0; i < 8; i++) {
+ 5ea:	8f 5f       	subi	r24, 0xFF	; 255
+ 5ec:	88 30       	cpi	r24, 0x08	; 8
+ 5ee:	b0 f3       	brcs	.-20     	; 0x5dc <mcu_init+0x4>
+ 5f0:	80 e0       	ldi	r24, 0x00	; 0
+ 5f2:	08 c0       	rjmp	.+16     	; 0x604 <mcu_init+0x2c>
+		*((uint8_t *)&PORTA + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+
+	for (uint8_t i = 0; i < 8; i++) {
+		*((uint8_t *)&PORTB + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+ 5f4:	e8 2f       	mov	r30, r24
+ 5f6:	f0 e0       	ldi	r31, 0x00	; 0
+ 5f8:	e0 5d       	subi	r30, 0xD0	; 208
+ 5fa:	fb 4f       	sbci	r31, 0xFB	; 251
+ 5fc:	90 81       	ld	r25, Z
+ 5fe:	98 60       	ori	r25, 0x08	; 8
+ 600:	90 83       	st	Z, r25
+
+	for (uint8_t i = 0; i < 8; i++) {
+		*((uint8_t *)&PORTA + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+
+	for (uint8_t i = 0; i < 8; i++) {
+ 602:	8f 5f       	subi	r24, 0xFF	; 255
+ 604:	88 30       	cpi	r24, 0x08	; 8
+ 606:	b0 f3       	brcs	.-20     	; 0x5f4 <mcu_init+0x1c>
+ 608:	80 e0       	ldi	r24, 0x00	; 0
+ 60a:	08 c0       	rjmp	.+16     	; 0x61c <mcu_init+0x44>
+		*((uint8_t *)&PORTB + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+
+	for (uint8_t i = 0; i < 8; i++) {
+		*((uint8_t *)&PORTC + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+ 60c:	e8 2f       	mov	r30, r24
+ 60e:	f0 e0       	ldi	r31, 0x00	; 0
+ 610:	e0 5b       	subi	r30, 0xB0	; 176
+ 612:	fb 4f       	sbci	r31, 0xFB	; 251
+ 614:	90 81       	ld	r25, Z
+ 616:	98 60       	ori	r25, 0x08	; 8
+ 618:	90 83       	st	Z, r25
+
+	for (uint8_t i = 0; i < 8; i++) {
+		*((uint8_t *)&PORTB + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+
+	for (uint8_t i = 0; i < 8; i++) {
+ 61a:	8f 5f       	subi	r24, 0xFF	; 255
+ 61c:	88 30       	cpi	r24, 0x08	; 8
+ 61e:	b0 f3       	brcs	.-20     	; 0x60c <mcu_init+0x34>
+		*((uint8_t *)&PORTC + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+}
+ 620:	08 95       	ret
+
+00000622 <FLASH_0_initialization>:
+#include <system.h>
+
+/* Initialize registers */
+void FLASH_0_initialization(void)
+{
+	FLASH_0_init();
+ 622:	8b d0       	rcall	.+278    	; 0x73a <FLASH_0_init>
+ 624:	08 95       	ret
+
+00000626 <I2C_0_initialization>:
+static inline void PORTA_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level == true) {
+		VPORTA.OUT |= (1 << pin);
+	} else {
+		VPORTA.OUT &= ~(1 << pin);
+ 626:	81 b1       	in	r24, 0x01	; 1
+ 628:	8b 7f       	andi	r24, 0xFB	; 251
+ 62a:	81 b9       	out	0x01, r24	; 1
+	switch (dir) {
+	case PORT_DIR_IN:
+		VPORTA.DIR &= ~(1 << pin);
+		break;
+	case PORT_DIR_OUT:
+		VPORTA.DIR |= (1 << pin);
+ 62c:	80 b1       	in	r24, 0x00	; 0
+ 62e:	84 60       	ori	r24, 0x04	; 4
+ 630:	80 b9       	out	0x00, r24	; 0
+static inline void PORTA_set_pin_pull_mode(const uint8_t pin, const enum port_pull_mode pull_mode)
+{
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTA + 0x10 + pin);
+
+	if (pull_mode == PORT_PULL_UP) {
+		*port_pin_ctrl |= PORT_PULLUPEN_bm;
+ 632:	e2 e1       	ldi	r30, 0x12	; 18
+ 634:	f4 e0       	ldi	r31, 0x04	; 4
+ 636:	80 81       	ld	r24, Z
+ 638:	88 60       	ori	r24, 0x08	; 8
+ 63a:	80 83       	st	Z, r24
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTA + 0x10 + pin);
+
+	if (inverted) {
+		*port_pin_ctrl |= PORT_INVEN_bm;
+	} else {
+		*port_pin_ctrl &= ~PORT_INVEN_bm;
+ 63c:	80 81       	ld	r24, Z
+ 63e:	8f 77       	andi	r24, 0x7F	; 127
+ 640:	80 83       	st	Z, r24
+ */
+static inline void PORTA_pin_set_isc(const uint8_t pin, const PORT_ISC_t isc)
+{
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTA + 0x10 + pin);
+
+	*port_pin_ctrl = (*port_pin_ctrl & ~PORT_ISC_gm) | isc;
+ 642:	80 81       	ld	r24, Z
+ 644:	88 7f       	andi	r24, 0xF8	; 248
+ 646:	80 83       	st	Z, r24
+	    // <PORT_ISC_INPUT_DISABLE_gc"> Digital Input Buffer disabled
+	    // <PORT_ISC_LEVEL_gc"> Sense low Level
+	    PORT_ISC_INTDISABLE_gc);
+
+	/* set the alternate pin mux */
+	PORTMUX.CTRLB |= PORTMUX_TWI0_bm;
+ 648:	a0 e0       	ldi	r26, 0x00	; 0
+ 64a:	b2 e0       	ldi	r27, 0x02	; 2
+ 64c:	11 96       	adiw	r26, 0x01	; 1
+ 64e:	8c 91       	ld	r24, X
+ 650:	11 97       	sbiw	r26, 0x01	; 1
+ 652:	80 61       	ori	r24, 0x10	; 16
+ 654:	11 96       	adiw	r26, 0x01	; 1
+ 656:	8c 93       	st	X, r24
+ 658:	11 97       	sbiw	r26, 0x01	; 1
+static inline void PORTA_set_pin_level(const uint8_t pin, const bool level)
+{
+	if (level == true) {
+		VPORTA.OUT |= (1 << pin);
+	} else {
+		VPORTA.OUT &= ~(1 << pin);
+ 65a:	81 b1       	in	r24, 0x01	; 1
+ 65c:	8d 7f       	andi	r24, 0xFD	; 253
+ 65e:	81 b9       	out	0x01, r24	; 1
+	switch (dir) {
+	case PORT_DIR_IN:
+		VPORTA.DIR &= ~(1 << pin);
+		break;
+	case PORT_DIR_OUT:
+		VPORTA.DIR |= (1 << pin);
+ 660:	80 b1       	in	r24, 0x00	; 0
+ 662:	82 60       	ori	r24, 0x02	; 2
+ 664:	80 b9       	out	0x00, r24	; 0
+static inline void PORTA_set_pin_pull_mode(const uint8_t pin, const enum port_pull_mode pull_mode)
+{
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTA + 0x10 + pin);
+
+	if (pull_mode == PORT_PULL_UP) {
+		*port_pin_ctrl |= PORT_PULLUPEN_bm;
+ 666:	e1 e1       	ldi	r30, 0x11	; 17
+ 668:	f4 e0       	ldi	r31, 0x04	; 4
+ 66a:	80 81       	ld	r24, Z
+ 66c:	88 60       	ori	r24, 0x08	; 8
+ 66e:	80 83       	st	Z, r24
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTA + 0x10 + pin);
+
+	if (inverted) {
+		*port_pin_ctrl |= PORT_INVEN_bm;
+	} else {
+		*port_pin_ctrl &= ~PORT_INVEN_bm;
+ 670:	80 81       	ld	r24, Z
+ 672:	8f 77       	andi	r24, 0x7F	; 127
+ 674:	80 83       	st	Z, r24
+ */
+static inline void PORTA_pin_set_isc(const uint8_t pin, const PORT_ISC_t isc)
+{
+	volatile uint8_t *port_pin_ctrl = ((uint8_t *)&PORTA + 0x10 + pin);
+
+	*port_pin_ctrl = (*port_pin_ctrl & ~PORT_ISC_gm) | isc;
+ 676:	80 81       	ld	r24, Z
+ 678:	88 7f       	andi	r24, 0xF8	; 248
+ 67a:	80 83       	st	Z, r24
+	    // <PORT_ISC_INPUT_DISABLE_gc"> Digital Input Buffer disabled
+	    // <PORT_ISC_LEVEL_gc"> Sense low Level
+	    PORT_ISC_INTDISABLE_gc);
+
+	/* set the alternate pin mux */
+	PORTMUX.CTRLB |= PORTMUX_TWI0_bm;
+ 67c:	11 96       	adiw	r26, 0x01	; 1
+ 67e:	8c 91       	ld	r24, X
+ 680:	11 97       	sbiw	r26, 0x01	; 1
+ 682:	80 61       	ori	r24, 0x10	; 16
+ 684:	11 96       	adiw	r26, 0x01	; 1
+ 686:	8c 93       	st	X, r24
+
+	I2C_0_init();
+ 688:	3f d0       	rcall	.+126    	; 0x708 <I2C_0_init>
+ 68a:	08 95       	ret
+
+0000068c <system_init>:
+/**
+ * \brief System initialization
+ */
+void system_init()
+{
+	mcu_init();
+ 68c:	a5 df       	rcall	.-182    	; 0x5d8 <mcu_init>
+
+	CLKCTRL_init();
+ 68e:	9b df       	rcall	.-202    	; 0x5c6 <CLKCTRL_init>
+
+	FLASH_0_initialization();
+ 690:	c8 df       	rcall	.-112    	; 0x622 <FLASH_0_initialization>
+
+	CPUINT_init();
+ 692:	9b df       	rcall	.-202    	; 0x5ca <CPUINT_init>
+
+	SLPCTRL_init();
+ 694:	81 d0       	rcall	.+258    	; 0x798 <SLPCTRL_init>
+
+	I2C_0_initialization();
+ 696:	c7 df       	rcall	.-114    	; 0x626 <I2C_0_initialization>
+
+	BOD_init();
+ 698:	94 df       	rcall	.-216    	; 0x5c2 <BOD_init>
+ 69a:	08 95       	ret
+
+0000069c <I2C_0_close>:
+	}
+
+	// Check if STOP was received
+	if ((TWI0.SSTATUS & TWI_APIF_bm) && (!(TWI0.SSTATUS & TWI_AP_bm))) {
+		I2C_0_stop_callback();
+		TWI0.SCTRLB = TWI_SCMD_COMPTRANS_gc;
+ 69c:	e0 e1       	ldi	r30, 0x10	; 16
+ 69e:	f8 e0       	ldi	r31, 0x08	; 8
+ 6a0:	81 85       	ldd	r24, Z+9	; 0x09
+ 6a2:	8e 7f       	andi	r24, 0xFE	; 254
+ 6a4:	81 87       	std	Z+9, r24	; 0x09
+ 6a6:	08 95       	ret
+
+000006a8 <I2C_0_read>:
+ 6a8:	80 91 1d 08 	lds	r24, 0x081D	; 0x80081d <__RODATA_PM_OFFSET__+0x7f881d>
+ 6ac:	08 95       	ret
+
+000006ae <I2C_0_write>:
+ 6ae:	e0 e1       	ldi	r30, 0x10	; 16
+ 6b0:	f8 e0       	ldi	r31, 0x08	; 8
+ 6b2:	85 87       	std	Z+13, r24	; 0x0d
+ 6b4:	82 85       	ldd	r24, Z+10	; 0x0a
+ 6b6:	83 60       	ori	r24, 0x03	; 3
+ 6b8:	82 87       	std	Z+10, r24	; 0x0a
+ 6ba:	08 95       	ret
+
+000006bc <I2C_0_send_ack>:
+ 6bc:	83 e0       	ldi	r24, 0x03	; 3
+ 6be:	80 93 1a 08 	sts	0x081A, r24	; 0x80081a <__RODATA_PM_OFFSET__+0x7f881a>
+ 6c2:	08 95       	ret
+
+000006c4 <I2C_0_send_nack>:
+ 6c4:	86 e0       	ldi	r24, 0x06	; 6
+ 6c6:	80 93 1a 08 	sts	0x081A, r24	; 0x80081a <__RODATA_PM_OFFSET__+0x7f881a>
+ 6ca:	08 95       	ret
+
+000006cc <I2C_0_set_read_callback>:
+ 6cc:	80 93 e2 3e 	sts	0x3EE2, r24	; 0x803ee2 <I2C_0_read_interrupt_handler>
+ 6d0:	90 93 e3 3e 	sts	0x3EE3, r25	; 0x803ee3 <I2C_0_read_interrupt_handler+0x1>
+ 6d4:	08 95       	ret
+
+000006d6 <I2C_0_set_write_callback>:
+ 6d6:	80 93 e0 3e 	sts	0x3EE0, r24	; 0x803ee0 <I2C_0_write_interrupt_handler>
+ 6da:	90 93 e1 3e 	sts	0x3EE1, r25	; 0x803ee1 <I2C_0_write_interrupt_handler+0x1>
+ 6de:	08 95       	ret
+
+000006e0 <I2C_0_set_address_callback>:
+ 6e0:	80 93 e4 3e 	sts	0x3EE4, r24	; 0x803ee4 <I2C_0_address_interrupt_handler>
+ 6e4:	90 93 e5 3e 	sts	0x3EE5, r25	; 0x803ee5 <I2C_0_address_interrupt_handler+0x1>
+ 6e8:	08 95       	ret
+
+000006ea <I2C_0_set_stop_callback>:
+ 6ea:	80 93 de 3e 	sts	0x3EDE, r24	; 0x803ede <I2C_0_stop_interrupt_handler>
+ 6ee:	90 93 df 3e 	sts	0x3EDF, r25	; 0x803edf <I2C_0_stop_interrupt_handler+0x1>
+ 6f2:	08 95       	ret
+
+000006f4 <I2C_0_set_collision_callback>:
+ 6f4:	80 93 e8 3e 	sts	0x3EE8, r24	; 0x803ee8 <I2C_0_collision_interrupt_handler>
+ 6f8:	90 93 e9 3e 	sts	0x3EE9, r25	; 0x803ee9 <I2C_0_collision_interrupt_handler+0x1>
+ 6fc:	08 95       	ret
+
+000006fe <I2C_0_set_bus_error_callback>:
+ *
+ * \return Nothing
+ */
+void I2C_0_set_bus_error_callback(I2C_0_callback handler)
+{
+	I2C_0_bus_error_interrupt_handler = handler;
+ 6fe:	80 93 e6 3e 	sts	0x3EE6, r24	; 0x803ee6 <I2C_0_bus_error_interrupt_handler>
+ 702:	90 93 e7 3e 	sts	0x3EE7, r25	; 0x803ee7 <I2C_0_bus_error_interrupt_handler+0x1>
+ 706:	08 95       	ret
+
+00000708 <I2C_0_init>:
+	//		 | TWI_SDAHOLD_OFF_gc /* SDA hold time off */
+	//		 | TWI_SDASETUP_4CYC_gc; /* SDA setup time is 4 clock cycles */
+
+	// TWI0.DBGCTRL = 0 << TWI_DBGRUN_bp; /* Debug Run: disabled */
+
+	TWI0.SADDR = 0x4f << TWI_ADDRMASK_gp /* Slave Address: 0x4f */
+ 708:	e0 e1       	ldi	r30, 0x10	; 16
+ 70a:	f8 e0       	ldi	r31, 0x08	; 8
+ 70c:	8e e9       	ldi	r24, 0x9E	; 158
+ 70e:	84 87       	std	Z+12, r24	; 0x0c
+	             | 0 << TWI_ADDREN_bp;   /* General Call Recognition Enable: disabled */
+
+	// TWI0.SADDRMASK = 0 << TWI_ADDREN_bp /* Address Mask Enable: disabled */
+	//		 | 0x0 << TWI_ADDRMASK_gp; /* Address Mask: 0x0 */
+
+	TWI0.SCTRLA = 1 << TWI_APIEN_bp    /* Address/Stop Interrupt Enable: enabled */
+ 710:	81 ee       	ldi	r24, 0xE1	; 225
+ 712:	81 87       	std	Z+9, r24	; 0x09
+	              | 1 << TWI_ENABLE_bp /* Enable TWI Slave: enabled */
+	              | 1 << TWI_PIEN_bp   /* Stop Interrupt Enable: enabled */
+	              | 0 << TWI_PMEN_bp   /* Promiscuous Mode Enable: disabled */
+	              | 0 << TWI_SMEN_bp;  /* Smart Mode Enable: disabled */
+
+	I2C_0_set_write_callback(NULL);
+ 714:	80 e0       	ldi	r24, 0x00	; 0
+ 716:	90 e0       	ldi	r25, 0x00	; 0
+ 718:	de df       	rcall	.-68     	; 0x6d6 <I2C_0_set_write_callback>
+	I2C_0_set_read_callback(NULL);
+ 71a:	80 e0       	ldi	r24, 0x00	; 0
+ 71c:	90 e0       	ldi	r25, 0x00	; 0
+ 71e:	d6 df       	rcall	.-84     	; 0x6cc <I2C_0_set_read_callback>
+	I2C_0_set_address_callback(NULL);
+ 720:	80 e0       	ldi	r24, 0x00	; 0
+ 722:	90 e0       	ldi	r25, 0x00	; 0
+ 724:	dd df       	rcall	.-70     	; 0x6e0 <I2C_0_set_address_callback>
+	I2C_0_set_stop_callback(NULL);
+ 726:	80 e0       	ldi	r24, 0x00	; 0
+ 728:	90 e0       	ldi	r25, 0x00	; 0
+ 72a:	df df       	rcall	.-66     	; 0x6ea <I2C_0_set_stop_callback>
+	I2C_0_set_collision_callback(NULL);
+ 72c:	80 e0       	ldi	r24, 0x00	; 0
+ 72e:	90 e0       	ldi	r25, 0x00	; 0
+ 730:	e1 df       	rcall	.-62     	; 0x6f4 <I2C_0_set_collision_callback>
+	I2C_0_set_bus_error_callback(NULL);
+ 732:	80 e0       	ldi	r24, 0x00	; 0
+ 734:	90 e0       	ldi	r25, 0x00	; 0
+ 736:	e3 df       	rcall	.-58     	; 0x6fe <I2C_0_set_bus_error_callback>
+ 738:	08 95       	ret
+
+0000073a <FLASH_0_init>:
+
+	if (NVMCTRL.STATUS & NVMCTRL_WRERROR_bm)
+		return NVM_ERROR;
+	else
+		return NVM_OK;
+}
+ 73a:	80 e0       	ldi	r24, 0x00	; 0
+ 73c:	08 95       	ret
+
+0000073e <FLASH_0_read_flash_byte>:
+ 73e:	90 58       	subi	r25, 0x80	; 128
+ 740:	fc 01       	movw	r30, r24
+ 742:	80 81       	ld	r24, Z
+ 744:	08 95       	ret
+
+00000746 <FLASH_0_erase_flash_page>:
+ */
+nvmctrl_status_t FLASH_0_erase_flash_page(flash_adr_t flash_adr)
+{
+
+	// Create a pointer in unified memory map to the page to erase
+	uint8_t *data_space = (uint8_t *)(MAPPED_PROGMEM_START + flash_adr);
+ 746:	90 58       	subi	r25, 0x80	; 128
+
+	// Perform a dummy write to this address to update the address register in NVMCTL
+	*data_space = 0;
+ 748:	fc 01       	movw	r30, r24
+ 74a:	10 82       	st	Z, r1
+ *       on calling convention. The memory model is not visible to the
+ *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+ */
+static inline void ccp_write_spm(void *addr, uint8_t value)
+{
+	protected_write_io(addr, CCP_SPM_gc, value);
+ 74c:	42 e0       	ldi	r20, 0x02	; 2
+ 74e:	6d e9       	ldi	r22, 0x9D	; 157
+ 750:	80 e0       	ldi	r24, 0x00	; 0
+ 752:	90 e1       	ldi	r25, 0x10	; 16
+ 754:	1d d0       	rcall	.+58     	; 0x790 <protected_write_io>
+
+	// Erase the flash page
+	ccp_write_spm((void *)&NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASE_gc);
+
+	if (NVMCTRL.STATUS & NVMCTRL_WRERROR_bm)
+ 756:	80 91 02 10 	lds	r24, 0x1002	; 0x801002 <__RODATA_PM_OFFSET__+0x7f9002>
+ 75a:	82 ff       	sbrs	r24, 2
+ 75c:	02 c0       	rjmp	.+4      	; 0x762 <FLASH_0_erase_flash_page+0x1c>
+		return NVM_ERROR;
+ 75e:	81 e0       	ldi	r24, 0x01	; 1
+ 760:	08 95       	ret
+	else
+		return NVM_OK;
+ 762:	80 e0       	ldi	r24, 0x00	; 0
+}
+ 764:	08 95       	ret
+
+00000766 <FLASH_0_write_flash_page>:
+ */
+nvmctrl_status_t FLASH_0_write_flash_page(flash_adr_t flash_adr, uint8_t *data)
+{
+
+	// Create a pointer in unified memory map to the page to write
+	uint8_t *data_space = (uint8_t *)(MAPPED_PROGMEM_START + flash_adr);
+ 766:	dc 01       	movw	r26, r24
+ 768:	b0 58       	subi	r27, 0x80	; 128
+
+	// Write data to the page buffer
+	memcpy(data_space, data, PROGMEM_PAGE_SIZE);
+ 76a:	90 e4       	ldi	r25, 0x40	; 64
+ 76c:	fb 01       	movw	r30, r22
+ 76e:	01 90       	ld	r0, Z+
+ 770:	0d 92       	st	X+, r0
+ 772:	9a 95       	dec	r25
+ 774:	e1 f7       	brne	.-8      	; 0x76e <FLASH_0_write_flash_page+0x8>
+ 776:	41 e0       	ldi	r20, 0x01	; 1
+ 778:	6d e9       	ldi	r22, 0x9D	; 157
+ 77a:	80 e0       	ldi	r24, 0x00	; 0
+ 77c:	90 e1       	ldi	r25, 0x10	; 16
+ 77e:	08 d0       	rcall	.+16     	; 0x790 <protected_write_io>
+
+	// Write the flash page
+	ccp_write_spm((void *)&NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEWRITE_gc);
+
+	if (NVMCTRL.STATUS & NVMCTRL_WRERROR_bm)
+ 780:	80 91 02 10 	lds	r24, 0x1002	; 0x801002 <__RODATA_PM_OFFSET__+0x7f9002>
+ 784:	82 ff       	sbrs	r24, 2
+ 786:	02 c0       	rjmp	.+4      	; 0x78c <FLASH_0_write_flash_page+0x26>
+		return NVM_ERROR;
+ 788:	81 e0       	ldi	r24, 0x01	; 1
+ 78a:	08 95       	ret
+	else
+		return NVM_OK;
+ 78c:	80 e0       	ldi	r24, 0x00	; 0
+}
+ 78e:	08 95       	ret
+
+00000790 <protected_write_io>:
+#if defined(__GNUC__)
+  
+#ifdef RAMPZ
+	out     _SFR_IO_ADDR(RAMPZ), r1         // Clear bits 23:16 of Z
+#endif
+	movw    r30, r24                // Load addr into Z
+ 790:	fc 01       	movw	r30, r24
+	out     CCP, r22                // Start CCP handshake
+ 792:	64 bf       	out	0x34, r22	; 52
+	st      Z, r20                  // Write value to I/O register
+ 794:	40 83       	st	Z, r20
+	ret                             // Return to caller
+ 796:	08 95       	ret
+
+00000798 <SLPCTRL_init>:
+
+	// SLPCTRL.CTRLA = 0 << SLPCTRL_SEN_bp /* Sleep enable: disabled */
+	//		 | SLPCTRL_SMODE_IDLE_gc; /* Idle mode */
+
+	return 0;
+}
+ 798:	80 e0       	ldi	r24, 0x00	; 0
+ 79a:	08 95       	ret
+
+0000079c <_exit>:
+ 79c:	f8 94       	cli
+
+0000079e <__stop_program>:
+ 79e:	ff cf       	rjmp	.-2      	; 0x79e <__stop_program>
